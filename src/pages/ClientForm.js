@@ -1,21 +1,16 @@
-import React, { useState } from 'react';
-import { Form, Button, Row, Col, Container } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Form, Row, Col, Container } from "react-bootstrap";
 
 const ClientForm = () => {
   // Define local state for the form data
   const [clientData, setClientData] = useState({
-    name: '',
-    email: '',
-    mobNo: '',
-    workArea: '',
-    companyName: '',
-    clientId: '',
-    street: '',
-    area: '',
-    city: '',
-    district: '',
-    state: '',
-    pinCode: '',
+    name: "",
+    email: "",
+    mobNo: "",
+    workArea: "",
+    companyName: "",
+    clientId: "",
+    address: "",
   });
 
   // Handle changes in the form fields
@@ -30,8 +25,7 @@ const ClientForm = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here, you can submit the data, for now, let's log it to the console
-    console.log('Form data submitted:', clientData);
+    console.log("Form data submitted:", clientData);
   };
 
   return (
@@ -39,9 +33,9 @@ const ClientForm = () => {
       <div className="form-container shadow-lg p-4 rounded">
         <h3 className="mb-4">Client Information</h3>
         <Form onSubmit={handleSubmit}>
-          {/* First row: Name and Email */}
+          {/* First row: Name, Email, and Mobile No. */}
           <Row className="mb-3">
-            <Col md={4}>
+            <Col xs={12} sm={6} md={4}>
               <Form.Group controlId="formName">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
@@ -53,7 +47,7 @@ const ClientForm = () => {
                 />
               </Form.Group>
             </Col>
-            <Col md={4}>
+            <Col xs={12} sm={6} md={4}>
               <Form.Group controlId="formEmail">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
@@ -65,7 +59,7 @@ const ClientForm = () => {
                 />
               </Form.Group>
             </Col>
-            <Col md={4}>
+            <Col xs={12} sm={6} md={4}>
               <Form.Group controlId="formMobile">
                 <Form.Label>Mobile No.</Form.Label>
                 <Form.Control
@@ -79,9 +73,9 @@ const ClientForm = () => {
             </Col>
           </Row>
 
-          {/* Second row: Work Area and Company Name */}
+          {/* Second row: Work Area, Company Name, and Client ID */}
           <Row className="mb-3">
-            <Col md={4}>
+            <Col xs={12} sm={6} md={4}>
               <Form.Group controlId="formWorkArea">
                 <Form.Label>Work Area</Form.Label>
                 <Form.Control
@@ -93,7 +87,7 @@ const ClientForm = () => {
                 />
               </Form.Group>
             </Col>
-            <Col md={4}>
+            <Col xs={12} sm={6} md={4}>
               <Form.Group controlId="formCompanyName">
                 <Form.Label>Company Name</Form.Label>
                 <Form.Control
@@ -105,7 +99,7 @@ const ClientForm = () => {
                 />
               </Form.Group>
             </Col>
-            <Col md={4}>
+            <Col xs={12} sm={6} md={4}>
               <Form.Group controlId="formClientId">
                 <Form.Label>Client ID</Form.Label>
                 <Form.Control
@@ -122,86 +116,25 @@ const ClientForm = () => {
           {/* Address Section */}
           <h5 className="mb-3">Address</h5>
           <Row className="mb-3">
-            <Col md={4}>
-              <Form.Group controlId="formStreet">
-                <Form.Label>Street Name</Form.Label>
+            <Col xs={12} md={6}>
+              <Form.Group controlId="formAddress">
+                <Form.Label>Full Address</Form.Label>
                 <Form.Control
-                  type="text"
-                  name="street"
-                  value={clientData.street}
+                  as="textarea"
+                  rows={3}
+                  name="address"
+                  value={clientData.address || ""}
                   onChange={handleClientChange}
-                  placeholder="Enter street name"
-                />
-              </Form.Group>
-            </Col>
-            <Col md={4}>
-              <Form.Group controlId="formArea">
-                <Form.Label>Area Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="area"
-                  value={clientData.area}
-                  onChange={handleClientChange}
-                  placeholder="Enter area name"
-                />
-              </Form.Group>
-            </Col>
-            <Col md={4}>
-              <Form.Group controlId="formCity">
-                <Form.Label>City Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="city"
-                  value={clientData.city}
-                  onChange={handleClientChange}
-                  placeholder="Enter city name"
-                />
-              </Form.Group>
-            </Col>
-          </Row>
-          <Row className="mb-3">
-            <Col md={4}>
-              <Form.Group controlId="formDistrict">
-                <Form.Label>District</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="district"
-                  value={clientData.district}
-                  onChange={handleClientChange}
-                  placeholder="Enter district"
-                />
-              </Form.Group>
-            </Col>
-            <Col md={4}>
-              <Form.Group controlId="formState">
-                <Form.Label>State</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="state"
-                  value={clientData.state}
-                  onChange={handleClientChange}
-                  placeholder="Enter state"
-                />
-              </Form.Group>
-            </Col>
-            <Col md={4}>
-              <Form.Group controlId="formPinCode">
-                <Form.Label>Pin Code</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="pinCode"
-                  value={clientData.pinCode}
-                  onChange={handleClientChange}
-                  placeholder="Enter pin code"
+                  placeholder="Enter full address"
                 />
               </Form.Group>
             </Col>
           </Row>
 
           {/* Submit Button */}
-          <Button variant="primary" type="submit">
+          <button type="submit" className="btn btn-success btn-sm">
             Submit
-          </Button>
+          </button>
         </Form>
       </div>
     </Container>

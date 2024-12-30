@@ -5,9 +5,9 @@ import Sidebar from './components/Sidebar';
 import NavbarHeader from './components/NavbarHeader';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
-
 import ClientForm from './pages/ClientForm';
 import BasicForm from './pages/BasicForm';
+import JobDescriptionPage from './pages/JobDescriptionPage';
 
 function App() {
   return (
@@ -15,13 +15,13 @@ function App() {
       <div className="container-fluid vh-100 d-flex flex-column">
         {/* Full-Height Layout */}
         <div className="row flex-grow-1">
-          {/* Sidebar */}
-          <div className="col-3 bg-light p-0 vh-100 d-flex flex-column">
+          {/* Sidebar - collapsed on small screens */}
+          <div className="col-12 col-md-3 bg-light p-0 vh-100 d-flex flex-column">
             <Sidebar />
           </div>
 
           {/* Main Content Area */}
-          <div className="col-9 p-0 d-flex flex-column">
+          <div className="col-12 col-md-9 p-0 d-flex flex-column">
             {/* Navbar */}
             <div>
               <NavbarHeader />
@@ -34,6 +34,7 @@ function App() {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/client-form" element={<ClientForm />} />
                 <Route path="/basic-form" element={<BasicForm />} />
+                <Route path="/Job-Description" element={<JobDescriptionPage />} />
               </Routes>
             </div>
 

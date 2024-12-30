@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import logo from "../assets/img/kaiadmin/logo_light.png";
 
 const Sidebar = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
   const [isBaseOpen, setIsBaseOpen] = useState(true);
   const [isSidebarLayoutsOpen, setIsSidebarLayoutsOpen] = useState(false);
@@ -20,26 +21,24 @@ const Sidebar = () => {
     setter((prevState) => !prevState);
   };
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen((prev) => !prev); // Function to toggle sidebar visibility
+  };
+
   return (
     <div
-      className="sidebar bg-dark text-white"
+      className={`sidebar bg-dark text-white ${isSidebarOpen ? "d-block" : "d-none d-md-block"}`}
       style={{ width: "250px", height: "100vh" }}
     >
+      {/* Sidebar toggle button for small screens */}
+      <button className="btn btn-link text-white d-md-none" onClick={toggleSidebar}>
+        <i className="fas fa-bars"></i> {/* Hamburger icon */}
+      </button>
+
       <div className="sidebar-logo p-3">
         <Link to="/" className="logo">
-          <img
-            src={logo}
-            alt="navbar brand56666"
-            className="navbar-brand"
-            height="20"
-          />
+          <img src={logo} alt="navbar brand" className="navbar-brand" height="20" />
         </Link>
-        <button
-          className="btn btn-link text-white"
-          onClick={() => toggleCollapse(setIsDashboardOpen)}
-        >
-          <i className="gg-menu-right"></i>
-        </button>
       </div>
 
       <div className="sidebar-wrapper scrollbar-inner">
@@ -48,9 +47,7 @@ const Sidebar = () => {
             {/* Dashboard */}
             <li className="nav-item">
               <a
-                className={`nav-link text-white ${
-                  isDashboardOpen ? "collapsed" : ""
-                }`}
+                className={`nav-link text-white ${isDashboardOpen ? "collapsed" : ""}`}
                 data-bs-toggle="collapse"
                 href="#dashboard"
                 onClick={() => toggleCollapse(setIsDashboardOpen)}
@@ -58,16 +55,10 @@ const Sidebar = () => {
                 <i className="fas fa-home"></i> Dashboard
                 <span className="caret"></span>
               </a>
-              <div
-                id="dashboard"
-                className={`collapse ${isDashboardOpen ? "show" : ""}`}
-              >
+              <div id="dashboard" className={`collapse ${isDashboardOpen ? "show" : ""}`}>
                 <ul className="nav flex-column ms-3">
                   <li>
-                    <a
-                      href="../../demo1/index.html"
-                      className="nav-link text-white"
-                    >
+                    <a href="../../demo1/index.html" className="nav-link text-white">
                       <span className="sub-item">Dashboard 1</span>
                     </a>
                   </li>
@@ -84,9 +75,7 @@ const Sidebar = () => {
             </li>
             <li className="nav-item">
               <a
-                className={`nav-link text-white ${
-                  isBaseOpen ? "collapsed" : ""
-                }`}
+                className={`nav-link text-white ${isBaseOpen ? "collapsed" : ""}`}
                 data-bs-toggle="collapse"
                 href="#base"
                 onClick={() => toggleCollapse(setIsBaseOpen)}
@@ -97,42 +86,8 @@ const Sidebar = () => {
               <div id="base" className={`collapse ${isBaseOpen ? "show" : ""}`}>
                 <ul className="nav flex-column ms-3">
                   <li>
-                    <a
-                      href="../components/avatars.html"
-                      className="nav-link text-white"
-                    >
+                    <a href="../components/avatars.html" className="nav-link text-white">
                       <span className="sub-item">Avatars</span>
-                    </a>
-                  </li>
-                  {/* Add other items similarly */}
-                </ul>
-              </div>
-            </li>
-
-            {/* Sidebar Layouts */}
-            <li className="nav-item">
-              <a
-                className={`nav-link text-white ${
-                  isSidebarLayoutsOpen ? "collapsed" : ""
-                }`}
-                data-bs-toggle="collapse"
-                href="#sidebarLayouts"
-                onClick={() => toggleCollapse(setIsSidebarLayoutsOpen)}
-              >
-                <i className="fas fa-th-list"></i> Sidebar Layouts
-                <span className="caret"></span>
-              </a>
-              <div
-                id="sidebarLayouts"
-                className={`collapse ${isSidebarLayoutsOpen ? "show" : ""}`}
-              >
-                <ul className="nav flex-column ms-3">
-                  <li>
-                    <a
-                      href="../sidebar-style-2.html"
-                      className="nav-link text-white"
-                    >
-                      <span className="sub-item">Sidebar Style 2</span>
                     </a>
                   </li>
                   {/* Add other items similarly */}
@@ -143,9 +98,7 @@ const Sidebar = () => {
             {/* Forms */}
             <li className="nav-item">
               <a
-                className={`nav-link text-white ${
-                  isFormsOpen ? "collapsed" : ""
-                }`}
+                className={`nav-link text-white ${isFormsOpen ? "collapsed" : ""}`}
                 data-bs-toggle="collapse"
                 href="#forms"
                 onClick={() => toggleCollapse(setIsFormsOpen)}
@@ -153,26 +106,21 @@ const Sidebar = () => {
                 <i className="fas fa-pen-square"></i> Forms
                 <span className="caret"></span>
               </a>
-              <div
-                id="forms"
-                className={`collapse ${isFormsOpen ? "show" : ""}`}
-              >
+              <div id="forms" className={`collapse ${isFormsOpen ? "show" : ""}`}>
                 <ul className="nav flex-column ms-3">
                   <li>
                     <Link to="/basic-form" className="nav-link text-white">
                       <span className="sub-item">Basic Form</span>
                     </Link>
                   </li>
-                </ul>
-              </div>
-              <div
-                id="forms"
-                className={`collapse ${isFormsOpen ? "show" : ""}`}
-              >
-                <ul className="nav flex-column ms-3">
                   <li>
                     <Link to="/client-form" className="nav-link text-white">
                       <span className="sub-item">Client Form</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/Job-Description" className="nav-link text-white">
+                      <span className="sub-item">Job Description</span>
                     </Link>
                   </li>
                 </ul>
@@ -182,9 +130,7 @@ const Sidebar = () => {
             {/* Tables */}
             <li className="nav-item">
               <a
-                className={`nav-link text-white ${
-                  isTablesOpen ? "collapsed" : ""
-                }`}
+                className={`nav-link text-white ${isTablesOpen ? "collapsed" : ""}`}
                 data-bs-toggle="collapse"
                 href="#tables"
                 onClick={() => toggleCollapse(setIsTablesOpen)}
@@ -192,16 +138,10 @@ const Sidebar = () => {
                 <i className="fas fa-table"></i> Tables
                 <span className="caret"></span>
               </a>
-              <div
-                id="tables"
-                className={`collapse ${isTablesOpen ? "show" : ""}`}
-              >
+              <div id="tables" className={`collapse ${isTablesOpen ? "show" : ""}`}>
                 <ul className="nav flex-column ms-3">
                   <li>
-                    <a
-                      href="../tables/tables.html"
-                      className="nav-link text-white"
-                    >
+                    <a href="../tables/tables.html" className="nav-link text-white">
                       <span className="sub-item">Basic Table</span>
                     </a>
                   </li>
@@ -212,9 +152,7 @@ const Sidebar = () => {
             {/* Maps */}
             <li className="nav-item">
               <a
-                className={`nav-link text-white ${
-                  isMapsOpen ? "collapsed" : ""
-                }`}
+                className={`nav-link text-white ${isMapsOpen ? "collapsed" : ""}`}
                 data-bs-toggle="collapse"
                 href="#maps"
                 onClick={() => toggleCollapse(setIsMapsOpen)}
@@ -374,7 +312,7 @@ const Sidebar = () => {
             </li>
 
             {/* ********* */}
-          </ul>
+            </ul>
         </div>
       </div>
     </div>
