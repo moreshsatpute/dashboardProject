@@ -1,5 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faEnvelope, faBell, faLayerGroup, faUserPlus, faComment, faAngleRight,faMap, faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 const NavbarHeader = () => {
   return (
@@ -10,7 +12,7 @@ const NavbarHeader = () => {
           <div className="input-group">
             <div className="input-group-prepend">
               <button type="submit" className="btn btn-search pe-1">
-                <i className="fa fa-search search-icon"></i>
+                <FontAwesomeIcon icon={faSearch} className="search-icon" />
               </button>
             </div>
             <input type="text" placeholder="Search ..." className="form-control" />
@@ -22,7 +24,7 @@ const NavbarHeader = () => {
           {/* Search Icon Dropdown (Mobile) */}
           <li className="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
             <a className="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" aria-haspopup="true">
-              <i className="fa fa-search"></i>
+              <FontAwesomeIcon icon={faSearch} />
             </a>
             <ul className="dropdown-menu dropdown-search animated fadeIn">
               <form className="navbar-left navbar-form nav-search">
@@ -36,7 +38,7 @@ const NavbarHeader = () => {
           {/* Messages Icon Dropdown */}
           <li className="nav-item topbar-icon dropdown hidden-caret">
             <a className="nav-link dropdown-toggle" href="#" id="messageDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="fa fa-envelope"></i>
+              <FontAwesomeIcon icon={faEnvelope} />
             </a>
             <ul className="dropdown-menu messages-notif-box animated fadeIn" aria-labelledby="messageDropdown">
               <li>
@@ -75,7 +77,7 @@ const NavbarHeader = () => {
               </li>
               <li>
                 <a className="see-all" href="javascript:void(0);">
-                  See all messages <i className="fa fa-angle-right"></i>
+                  See all messages <FontAwesomeIcon icon={faAngleRight} />
                 </a>
               </li>
             </ul>
@@ -84,7 +86,7 @@ const NavbarHeader = () => {
           {/* Notification Icon Dropdown */}
           <li className="nav-item topbar-icon dropdown hidden-caret">
             <a className="nav-link dropdown-toggle" href="#" id="notifDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i className="fa fa-bell"></i>
+              <FontAwesomeIcon icon={faBell} />
               <span className="notification">4</span>
             </a>
             <ul className="dropdown-menu notif-box animated fadeIn" aria-labelledby="notifDropdown">
@@ -96,7 +98,7 @@ const NavbarHeader = () => {
                   <div className="notif-center">
                     {/* Notification Example */}
                     <a href="#">
-                      <div className="notif-icon notif-primary"><i className="fa fa-user-plus"></i></div>
+                      <div className="notif-icon notif-primary"><FontAwesomeIcon icon={faUserPlus} /></div>
                       <div className="notif-content">
                         <span className="block">New user registered</span>
                         <span className="time">5 minutes ago</span>
@@ -104,7 +106,7 @@ const NavbarHeader = () => {
                     </a>
                     {/* Additional Notifications */}
                     <a href="#">
-                      <div className="notif-icon notif-success"><i className="fa fa-comment"></i></div>
+                      <div className="notif-icon notif-success"><FontAwesomeIcon icon={faComment} /></div>
                       <div className="notif-content">
                         <span className="block">Rahmad commented on Admin</span>
                         <span className="time">12 minutes ago</span>
@@ -115,7 +117,7 @@ const NavbarHeader = () => {
               </li>
               <li>
                 <a className="see-all" href="javascript:void(0);">
-                  See all notifications <i className="fa fa-angle-right"></i>
+                  See all notifications <FontAwesomeIcon icon={faAngleRight} />
                 </a>
               </li>
             </ul>
@@ -124,7 +126,7 @@ const NavbarHeader = () => {
           {/* Quick Actions Icon Dropdown */}
           <li className="nav-item topbar-icon dropdown hidden-caret">
             <a className="nav-link" data-bs-toggle="dropdown" href="#" aria-expanded="false">
-              <i className="fas fa-layer-group"></i>
+              <FontAwesomeIcon icon={faLayerGroup} />
             </a>
             <div className="dropdown-menu quick-actions animated fadeIn">
               <div className="quick-actions-header">
@@ -138,7 +140,7 @@ const NavbarHeader = () => {
                     <a className="col-6 col-md-4 p-0" href="#">
                       <div className="quick-actions-item">
                         <div className="avatar-item bg-danger rounded-circle">
-                          <i className="far fa-calendar-alt"></i>
+                          <FontAwesomeIcon icon={faCalendarAlt} />
                         </div>
                         <span className="text">Calendar</span>
                       </div>
@@ -147,7 +149,7 @@ const NavbarHeader = () => {
                     <a className="col-6 col-md-4 p-0" href="#">
                       <div className="quick-actions-item">
                         <div className="avatar-item bg-warning rounded-circle">
-                          <i className="fas fa-map"></i>
+                          <FontAwesomeIcon icon={faMap} />
                         </div>
                         <span className="text">Maps</span>
                       </div>

@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar';
 import NavbarHeader from './components/NavbarHeader';
 import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
-import MainPanel from './components/MainPanel'; 
+
 import ClientForm from './pages/ClientForm';
 import BasicForm from './pages/BasicForm';
 
@@ -31,7 +31,7 @@ function App() {
             <div className="flex-grow-1 p-3">
               <Routes>
                 <Route path="/" element={<Dashboard />} />
-                <Route path="/main-panel" element={<MainPanel />} />
+                <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/client-form" element={<ClientForm />} />
                 <Route path="/basic-form" element={<BasicForm />} />
               </Routes>
