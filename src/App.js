@@ -8,10 +8,11 @@ import Footer from './components/Footer';
 import Dashboard from './components/Dashboard';
 import ClientForm from './pages/ClientForm';
 import BasicForm from './pages/BasicForm';
-import JobDescriptionPage from './pages/JobDescriptionPage';
+import JobDescriptionPage from './pages/JobDescriptionPage.js';
 import LoginModal from './components/LoginModal';
 import RegistrationPage from './components/RegistrationPage';
 import { Button } from 'react-bootstrap';
+import JobPostingForm from './pages/JobPostingForm';
 
 function App() {
     const [showLogin, setShowLogin] = useState(false);
@@ -52,7 +53,8 @@ function App() {
                                 <Route path="/dashboard" element={<Dashboard />} />
                                 <Route path="/client-form" element={<ClientForm />} />
                                 <Route path="/basic-form" element={<BasicForm />} />
-                                <Route path="/job-description" element={<JobDescriptionPage />} />
+                                <Route path="/Job-Description" element={<JobDescriptionPage/>} />
+                                <Route path="/Job-Posting" element={<JobPostingForm />} />
                                 <Route path="/register" element={<RegistrationPage />} />
                                 {/* Handle unmatched routes */}
                                 <Route path="*" element={<h2>404 - Page Not Found</h2>} />

@@ -123,6 +123,11 @@ const Sidebar = () => {
                       <span className="sub-item">Job Description</span>
                     </Link>
                   </li>
+                  <li>
+                    <Link to="/Job-Posting" className="nav-link text-white">
+                      <span className="sub-item">JobPostingForm</span>
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </li>
