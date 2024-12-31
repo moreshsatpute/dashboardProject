@@ -388,7 +388,7 @@ const JobDescriptionPage = () => {
 
           {/* Submit Button */}
           <div className="col-12 d-flex justify-content-center">
-            <button type="submit" className="btn btn-success btn-sm">
+            <button type="submit" className="btn btn-secondary btn-sm">
               Submit Job Vacancy
             </button>
           </div>

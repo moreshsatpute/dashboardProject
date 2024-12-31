@@ -31,7 +31,7 @@ const BasicForm = () => {
   };
 
   return (
-    <Container className="mt-3">
+    <Container className="mt-4">
       <div className="form-container shadow-lg p-4 rounded">
         <h3 className="mb-4">Basic Form</h3>
         <Form onSubmit={handleSubmit}>

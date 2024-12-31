@@ -1,21 +1,20 @@
 import React, { useState } from "react";
 import { Form, Row, Col, Container } from "react-bootstrap";
 import {
-  FaBriefcase,
+  FaBuilding,
   FaEnvelope,
   FaPhone,
-  FaBuilding,
   FaUserTie,
   FaCalendarAlt,
-  FaDollarSign,
-  FaMapMarkedAlt,
-  FaFileUpload,
-  FaTasks,
-  FaClipboardList,
   FaClock,
-  FaCheckCircle,
+  FaMapMarkedAlt,
+  FaDollarSign,
   FaLocationArrow,
-} from "react-icons/fa"; // Import all necessary icons
+  FaClipboardList,
+  FaTasks,
+  FaFileUpload,
+  FaCheckCircle,
+} from "react-icons/fa";
 
 const JobPostingForm = () => {
   const [jobData, setJobData] = useState({
@@ -55,274 +54,316 @@ const JobPostingForm = () => {
   };
 
   return (
-    <Container className="mt-3 text-dark ">
-      <div className="form-container shadow-lg p-4 rounded">
-        {/* Centered Header */}
+    <Container className="my-3 mb-2 text-dark">
+      <div className="form-container shadow-lg p-4 rounded border">
+        {/* Header */}
         <Row className="justify-content-center mb-4">
           <Col xs={12} md={6} className="text-center">
-            <div className="trapezoidal-header">
-              <h3 className="text-dark mb-0">
-                <FaBriefcase className="me-2" />
-                Job Posting Form
-              </h3>
-            </div>
+            <h3 className="text-dark mb-0">
+              <FaBuilding className="me-2" />
+              Job Posting Form
+            </h3>
           </Col>
         </Row>
 
         <Form onSubmit={handleSubmit}>
-          {/* First row */}
+          {/* First Row */}
           <Row className="mb-3">
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formClientCompanyName">
-                <Form.Label>
-                  <FaBuilding className="me-2" /> Client Company Name
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="clientCompanyName"
-                  value={jobData.clientCompanyName}
-                  onChange={handleChange}
-                  placeholder="Enter company name"
-                />
+                <Form.Label>Client Company Name</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaBuilding />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="clientCompanyName"
+                    value={jobData.clientCompanyName}
+                    onChange={handleChange}
+                    placeholder="Enter company name"
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formEmail">
-                <Form.Label>
-                  <FaEnvelope className="me-2" /> Email Address
-                </Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  value={jobData.email}
-                  onChange={handleChange}
-                  placeholder="Enter email"
-                />
+                <Form.Label>Email Address</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaEnvelope />
+                  </span>
+                  <Form.Control
+                    type="email"
+                    name="email"
+                    value={jobData.email}
+                    onChange={handleChange}
+                    placeholder="Enter email"
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formContactDetails">
-                <Form.Label>
-                  <FaPhone className="me-2" /> Contact Details
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="contactDetails"
-                  value={jobData.contactDetails}
-                  onChange={handleChange}
-                  placeholder="Enter contact number"
-                />
+                <Form.Label>Contact Details</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaPhone />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="contactDetails"
+                    value={jobData.contactDetails}
+                    onChange={handleChange}
+                    placeholder="Enter contact number"
+                  />
+                </div>
               </Form.Group>
             </Col>
           </Row>
 
-          {/* Second row */}
+          {/* Second Row */}
           <Row className="mb-3">
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formPositionAvailable">
-                <Form.Label>
-                  <FaUserTie className="me-2" /> Position Available
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="positionAvailable"
-                  value={jobData.positionAvailable}
-                  onChange={handleChange}
-                  placeholder="Enter position"
-                />
+                <Form.Label>Position Available</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaUserTie />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="positionAvailable"
+                    value={jobData.positionAvailable}
+                    onChange={handleChange}
+                    placeholder="Enter position"
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formMinExperience">
-                <Form.Label>
-                  <FaCalendarAlt className="me-2" /> Minimum Experience
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="minExperience"
-                  value={jobData.minExperience}
-                  onChange={handleChange}
-                  placeholder="Enter experience (years)"
-                />
+                <Form.Label>Minimum Experience</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaCalendarAlt />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="minExperience"
+                    value={jobData.minExperience}
+                    onChange={handleChange}
+                    placeholder="Enter experience (years)"
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formJobHours">
-                <Form.Label>
-                  <FaClock className="me-2" /> Job Hours
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="jobHours"
-                  value={jobData.jobHours}
-                  onChange={handleChange}
-                  placeholder="Enter job hours"
-                />
+                <Form.Label>Job Hours</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaClock />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="jobHours"
+                    value={jobData.jobHours}
+                    onChange={handleChange}
+                    placeholder="Enter job hours"
+                  />
+                </div>
               </Form.Group>
             </Col>
           </Row>
 
-          {/* Third row */}
+          {/* Third Row */}
           <Row className="mb-3">
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formShift">
-                <Form.Label>
-                  <FaTasks className="me-2" /> Shift
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="shift"
-                  value={jobData.shift}
-                  onChange={handleChange}
-                  placeholder="Enter shift details"
-                />
+                <Form.Label>Shift</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaTasks />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="shift"
+                    value={jobData.shift}
+                    onChange={handleChange}
+                    placeholder="Enter shift details"
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formJobLocation">
-                <Form.Label>
-                  <FaMapMarkedAlt className="me-2" /> Job Location
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="jobLocation"
-                  value={jobData.jobLocation}
-                  onChange={handleChange}
-                  placeholder="Enter job location"
-                />
+                <Form.Label>Job Location</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaMapMarkedAlt />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="jobLocation"
+                    value={jobData.jobLocation}
+                    onChange={handleChange}
+                    placeholder="Enter job location"
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formMinSalary">
-                <Form.Label>
-                  <FaDollarSign className="me-2" /> Minimum Salary
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="minSalary"
-                  value={jobData.minSalary}
-                  onChange={handleChange}
-                  placeholder="Enter minimum salary"
-                />
+                <Form.Label>Minimum Salary</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaDollarSign />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="minSalary"
+                    value={jobData.minSalary}
+                    onChange={handleChange}
+                    placeholder="Enter minimum salary"
+                  />
+                </div>
               </Form.Group>
             </Col>
           </Row>
 
-          {/* Fourth row */}
+          {/* Fourth Row */}
           <Row className="mb-3">
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formMaxSalary">
-                <Form.Label>
-                  <FaDollarSign className="me-2" /> Maximum Salary
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="maxSalary"
-                  value={jobData.maxSalary}
-                  onChange={handleChange}
-                  placeholder="Enter maximum salary"
-                />
+                <Form.Label>Maximum Salary</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaDollarSign />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="maxSalary"
+                    value={jobData.maxSalary}
+                    onChange={handleChange}
+                    placeholder="Enter maximum salary"
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formCompanyFullAddress">
-                <Form.Label>
-                  <FaLocationArrow className="me-2" /> Company Full Address
-                </Form.Label>
-                <Form.Control
-                  as="textarea"
-                  name="companyFullAddress"
-                  value={jobData.companyFullAddress}
-                  onChange={handleChange}
-                  placeholder="Enter company address"
-                />
+                <Form.Label>Company Full Address</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaLocationArrow />
+                  </span>
+                  <Form.Control
+                    as="textarea"
+                    name="companyFullAddress"
+                    value={jobData.companyFullAddress}
+                    onChange={handleChange}
+                    placeholder="Enter full address"
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formRequirements">
-                <Form.Label>
-                  <FaClipboardList className="me-2" /> Requirements
-                </Form.Label>
-                <Form.Control
-                  as="textarea"
-                  name="requirements"
-                  value={jobData.requirements}
-                  onChange={handleChange}
-                  placeholder="Enter job requirements"
-                />
+                <Form.Label>Requirements</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaClipboardList />
+                  </span>
+                  <Form.Control
+                    as="textarea"
+                    name="requirements"
+                    value={jobData.requirements}
+                    onChange={handleChange}
+                    placeholder="Enter requirements"
+                  />
+                </div>
               </Form.Group>
             </Col>
           </Row>
 
-          {/* Fifth row */}
+          {/* Fifth Row */}
           <Row className="mb-3">
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formPositionsByDept">
-                <Form.Label>
-                  <FaTasks className="me-2" /> Positions by Department
-                </Form.Label>
-                <Form.Control
-                  type="text"
-                  name="positionsByDept"
-                  value={jobData.positionsByDept}
-                  onChange={handleChange}
-                  placeholder="Enter positions by department"
-                />
+                <Form.Label>Positions by Department</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaTasks />
+                  </span>
+                  <Form.Control
+                    type="text"
+                    name="positionsByDept"
+                    value={jobData.positionsByDept}
+                    onChange={handleChange}
+                    placeholder="Enter positions by department"
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col md={4}>
               <Form.Group controlId="formDeadline">
-                <Form.Label>
-                  <FaCalendarAlt className="me-2" /> Deadline
-                </Form.Label>
-                <Form.Control
-                  type="date"
-                  name="deadline"
-                  value={jobData.deadline}
-                  onChange={handleChange}
-                />
+                <Form.Label>Deadline</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaCalendarAlt />
+                  </span>
+                  <Form.Control
+                    type="date"
+                    name="deadline"
+                    value={jobData.deadline}
+                    onChange={handleChange}
+                  />
+                </div>
               </Form.Group>
             </Col>
-            <Col xs={12} sm={6} md={4}>
-              <Form.Group controlId="formFileUpload">
-                <Form.Label>
-                  <FaFileUpload className="me-2" /> Upload File
-                </Form.Label>
-                <Form.Control type="file" name="file" onChange={handleChange} />
+            <Col md={4}>
+              <Form.Group controlId="formFile">
+                <Form.Label>Upload File</Form.Label>
+                <div className="input-group">
+                  <span className="input-group-text">
+                    <FaFileUpload />
+                  </span>
+                  <Form.Control
+                    type="file"
+                    name="file"
+                    onChange={handleChange}
+                  />
+                </div>
               </Form.Group>
             </Col>
           </Row>
 
-          {/* Sixth row: Terms acceptance */}
+          {/* Checkbox */}
           <Row className="mb-3">
-            <Col xs={12}>
+            <Col md={12}>
               <Form.Group controlId="formTermsAccepted">
                 <Form.Check
                   type="checkbox"
                   name="termsAccepted"
-                  label={
-                    <>
-                      <FaCheckCircle className="me-2" />
-                      Accept Terms and Conditions
-                    </>
-                  }
                   checked={jobData.termsAccepted}
                   onChange={handleChange}
+                  label={
+                    <>
+                      
+                      I accept the terms and conditions
+                    </>
+                  }
                 />
               </Form.Group>
             </Col>
           </Row>
 
-          {/* Submit button */}
-          <Row className="mb-3 d-flex justify-content-center">
-            <Col
-              xs={12}
-              sm={6}
-              md={4}
-              className="d-flex justify-content-center"
-            >
-              <button type="submit" className="btn btn-success btn-sm">
-                Submit
+          {/* Submit Button */}
+          <Row className="mt-4">
+            <Col className="text-center">
+              <button type="submit" className="btn btn-secondary">
+                Submit Job Posting
               </button>
             </Col>
           </Row>

@@ -28,7 +28,7 @@ const Sidebar = () => {
   return (
     <div
       className={`sidebar bg-dark text-white ${isSidebarOpen ? "d-block" : "d-none d-md-block"}`}
-      style={{ width: "250px", height: "100vh" }}
+      style={{  height: "100vh" }}
     >
       {/* Sidebar toggle button for small screens */}
       <button className="btn btn-link text-white d-md-none" onClick={toggleSidebar}>
@@ -108,24 +108,29 @@ const Sidebar = () => {
               </a>
               <div id="forms" className={`collapse ${isFormsOpen ? "show" : ""}`}>
                 <ul className="nav flex-column ms-3">
-                  <li>
+                  {/* <li>
                     <Link to="/basic-form" className="nav-link text-white">
                       <span className="sub-item">Basic Form</span>
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link to="/client-form" className="nav-link text-white">
                       <span className="sub-item">Client Form</span>
                     </Link>
                   </li>
                   <li>
-                    <Link to="/Job-Description" className="nav-link text-white">
-                      <span className="sub-item">Job Description</span>
+                    <Link to="/Franchise-Form" className="nav-link text-white">
+                      <span className="sub-item">Franchise Form</span>
                     </Link>
                   </li>
                   <li>
                     <Link to="/Job-Posting" className="nav-link text-white">
-                      <span className="sub-item">JobPostingForm</span>
+                      <span className="sub-item">Job Posting Form</span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/Candidate-Form" className="nav-link text-white">
+                      <span className="sub-item">Candidate Registration Form</span>
                     </Link>
                   </li>
                 </ul>
