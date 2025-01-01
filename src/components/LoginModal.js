@@ -1,87 +1,79 @@
-import React, { useState } from 'react';
-import { Modal, Button, Form, Alert } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { Modal, Button, Form, InputGroup } from "react-bootstrap";
+import { FaEnvelope, FaLock, FaUserPlus, FaKey } from "react-icons/fa";
 
-const LoginModal = ({ show, handleClose, handleRegisterNavigate }) => {
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-    });
-    const [loginError, setLoginError] = useState(false); // For displaying error message
-    const navigate = useNavigate();
+const LoginModal = ({ show, onClose }) => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Handle login logic here
+    console.log("Login clicked");
+  };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
+  return (
+    <Modal show={show} onHide={onClose} centered>
+      <Modal.Header closeButton>
+        <Modal.Title className="text-center w-100">Login</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Form onSubmit={handleLogin}>
+          {/* Email Input */}
+          <Form.Group className="mb-3" controlId="formEmail">
+            <Form.Label>Email Address</Form.Label>
+            <InputGroup>
+              <InputGroup.Text>
+                <FaEnvelope />
+              </InputGroup.Text>
+              <Form.Control
+                type="email"
+                placeholder="Enter your email"
+                required
+              />
+            </InputGroup>
+          </Form.Group>
 
-    const handleLogin = (e) => {
-        e.preventDefault();
-    
-        const { email, password } = formData;
-    
-        // Get users from localStorage
-        const users = JSON.parse(localStorage.getItem('users')) || [];
-    
-        // Check if user exists with matching credentials
-        const user = users.find(user => user.email === email && user.password === password);
-    
-        if (user) {
-            console.log('Login Successful');
-            handleClose(); // Close modal
-            navigate('/dashboard'); // Navigate to the dashboard or main application
-        } else {
-            console.log('Login Unsuccessful');
-            setLoginError(true); // Display error message
-    
-            // Hide the error message after 1 second
-            setTimeout(() => setLoginError(false), 1000);
-        }
-    };
-    
-    return (
-        <Modal show={show} onHide={handleClose} centered>
-            <Modal.Header>
-                <Modal.Title>Log In</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <Form onSubmit={handleLogin}>
-                    {loginError && <Alert variant="danger">Invalid email or password. Please try again.</Alert>}
-                    <Form.Group className="mb-3" controlId="formEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control
-                            type="email"
-                            placeholder="Enter email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control
-                            type="password"
-                            placeholder="Password"
-                            name="password"
-                            value={formData.password}
-                            onChange={handleChange}
-                        />
-                    </Form.Group>
-                    <div className="d-flex justify-content-between align-items-center">
-                        <Button className="btn btn-success btn-sm" variant="primary" type="submit">
-                            Log In
-                        </Button>
-                        <Button
-                            className="btn btn-success btn-sm"
-                            onClick={handleRegisterNavigate} // Trigger the registration modal
-                        >
-                            Register
-                        </Button>
-                    </div>
-                </Form>
-            </Modal.Body>
-        </Modal>
-    );
+          {/* Password Input */}
+          <Form.Group className="mb-3" controlId="formPassword">
+            <Form.Label>Password</Form.Label>
+            <InputGroup>
+              <InputGroup.Text>
+                <FaLock />
+              </InputGroup.Text>
+              <Form.Control
+                type="password"
+                placeholder="Enter your password"
+                required
+              />
+            </InputGroup>
+          </Form.Group>
+
+          {/* Login Button */}
+          <div className="d-flex justify-content-center">
+  <Button variant="secondary" type="submit" size="sm" className="mb-3" style={{ width: '150px' }}>
+    Login
+  </Button>
+</div>
+
+
+        </Form>
+
+        {/* Additional Options */}
+        <div className="text-center">
+          <p>
+            <a href="#register" className="text-secondary">
+              <FaUserPlus className="me-1" />
+              Register
+            </a>
+          </p>
+          <p>
+            <a href="#forgot-password" className="text-secondary">
+              <FaKey className="me-1" />
+              Forgot Password?
+            </a>
+          </p>
+        </div>
+      </Modal.Body>
+    </Modal>
+  );
 };
 
 export default LoginModal;

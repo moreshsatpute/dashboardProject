@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, ProgressBar, Button, Dropdown } from "react-bootstrap";
-import Panels from "./Panel";
+// import Panels from "./Panel";
 
 const Dashboard = () => {
   return (
@@ -22,7 +22,7 @@ const Dashboard = () => {
           </div>
         </div>
         {/* Add panal */}
-        <Panels/>
+        {/* <Panels/> */}
 
         {/* Statistics Section */}
         <div className="row">

@@ -60,7 +60,7 @@ const JobPostingForm = () => {
         <Row className="justify-content-center mb-4">
           <Col xs={12} md={6} className="text-center">
             <h3 className="text-dark mb-0">
-              <FaBuilding className="me-2" />
+              {/* <FaBuilding className="me-2" /> */}
               Job Posting Form
             </h3>
           </Col>
