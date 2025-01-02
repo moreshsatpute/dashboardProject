@@ -36,8 +36,10 @@ const Sidebar = () => {
       </button>
 
       <div className="sidebar-logo p-3">
-        <Link to="/" className="logo">
-          <img src={logo} alt="navbar brand" className="navbar-brand" height="20" />
+      <Link to="/" className="text-decoration-none text-white">
+          {/* <img src={logo} alt="navbar brand" className="navbar-brand" height="20" />
+           */}
+           <h3>Job Posting</h3>
         </Link>
       </div>
 
